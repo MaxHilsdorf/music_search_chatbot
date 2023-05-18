@@ -1,15 +1,16 @@
 # Music Search Chatbot
 
-A ChatGPT-based chatbot that recommends music to the user based on their interests.
+A ChatGPT-based chatbot that recommends music to the user based on their stated interests.
 
 ## Main Features
-* Obtain and discuss music recommendations through a natural conversation
-* Ask follow-up questions or change your mind about what music you want
-* The chatbot searches a predefined and exchangable music database
+* Obtain and discuss music recommendations through a natural conversation.
+* Ask follow-up questions or change your mind about what music you want.
+* The chatbot searches a predefined and exchangable music database.
+* If no music fits the request, the chatbot communicates that to the user.
 
 ## Conversation Flow
 1. "Receptionist" bot helps user to describe what music they are looking for.
-2. "Bouncer" closes the conversation when all has been said.
+2. "Bouncer" bot closes the conversation when all has been said.
 3. "Summarizer" bot summarizes the user request.
 4. "Search" bot searches the music database and identifies the best fits.
 5. "Recommender" bot presents recommendations and discusses them with the user.
@@ -37,23 +38,28 @@ A ChatGPT-based chatbot that recommends music to the user based on their interes
 
 ## How to Run
 
-1. Change to the project directory:
+1. Switch to src directory
    ```shell
-   $ python src/main.py
+   $ cd src
    ```
 
-2. Talk to the chat bot!
+2. Run main script
+   ```shell
+   $ python main.py
+   ```
+
+3. Talk to the chat bot!
 
 ## Music Database
-As a default, the [MusicCaps](https://www.kaggle.com/datasets/googleai/musiccaps) dataset is implemented for search. The recommendations are given as YouTube IDs (e.g. "65KYS3lIRII") which can be accessed with ```www.youtube.com/watch?v=65KYS3lIRII```.
+By default, the [MusicCaps](https://www.kaggle.com/datasets/googleai/musiccaps) dataset is implemented for search. The recommendations are given as YouTube IDs (e.g. "65KYS3lIRII") which can be accessed with ```www.youtube.com/watch?v=65KYS3lIRII```.
 
 Any other database can be implemented as long as you have a local dataset with the following information:
 * a unique name for each track
 * a caption (description) for each track
 
 How you construct the names (song title, url, ...) and the descriptions (full-text, list of tags, ...) is up to you. This tools works solely with text information and no audio signals are processed. To implement a new database, make the following changes to the repository:
-* Adjust the beginning of ```src/compute_embeddings.py``` to fit your dataset
-* Run ```src/compute_embeddings.py``` to overwrite ```src/aggregated_embeddings.py```
+* Adjust the beginning of ```src/compute_embeddings.py``` to fit your dataset.
+* Run ```src/compute_embeddings.py``` to overwrite ```src/aggregated_embeddings.py```.
 * Adjust ```src/main.py``` "PREPARATION" section to fit your dataset.
 
 ## License
