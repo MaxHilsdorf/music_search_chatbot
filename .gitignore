@@ -1,0 +1,8 @@
+src/testing/*
+src/experimentation/*
+src/resources/*
+doc/*
+*.npy
+src/__pycache__/*
+
+!src/embeddings/aggregated_embeddings.npy
