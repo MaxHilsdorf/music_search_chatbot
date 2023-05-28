@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from chat_bot import ReceptionBouncerBot, ReceptionChatBot, ReceptionSummarizerBot, RecommenderChatBot
+from chat_bot import HardCodedBouncerBot, ReceptionChatBot, ReceptionSummarizerBot, RecommenderChatBot
 from search import SimpleCosineSimilarity
 
 # Read openai api key from environment variable
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     
     # Instantiate chat bots
     receptionist = ReceptionChatBot()
-    bouncer = ReceptionBouncerBot()
+    bouncer = HardCodedBouncerBot(stop_phrases=["start search"])
     summarizer = ReceptionSummarizerBot()
     
     
@@ -63,7 +63,7 @@ if __name__ == "__main__":
             print(f"Assistant: {receptionist.get_response()}")
             
             
-        print("\nConversation closed by bouncer.")
+        print(f"\nConversation closed by {bouncer.name}.\n")
 
         ############
         ## SEARCH ##
