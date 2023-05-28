@@ -42,7 +42,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 # Define the layout of the app
 app.layout = html.Div(
     [
-        html.H1("Music Discovery Chatbot", className="app-title"),
+        html.H1("Music Search Chatbot", className="app-title"),
         html.Div(id="conversation", className="conversation-container"),
         html.Div(
             [
