@@ -2,6 +2,8 @@
 
 A ChatGPT-based chatbot that recommends music to the user based on their stated interests.
 
+<img src="res/img/readme_title_image.jpg"  width="700">
+
 ## Main Features
 * Obtain and discuss music recommendations through a natural conversation.
 * Ask follow-up questions or change your mind about what music you want.
