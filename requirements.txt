@@ -74,6 +74,10 @@ cycler==0.10.0
 Cython==0.29.28
 cytoolz==0.11.0
 daal4py==2021.3.0
+dash==2.10.0
+dash-core-components==2.0.0
+dash-html-components==2.0.0
+dash-table==5.0.0
 dask==2021.10.0
 datasets==2.0.0
 debugpy @ file:///C:/ci/debugpy_1629222819322/work
@@ -104,6 +108,7 @@ fsspec @ file:///tmp/build/80754af9/fsspec_1636116461911/work
 ftfy==6.1.1
 future @ file:///C:/ci/future_1607568713721/work
 gast==0.5.3
+gdown==4.7.1
 gensim==4.2.0
 gevent @ file:///C:/ci/gevent_1628273776273/work
 glob2 @ file:///home/linux1/recipes/ci/glob2_1610991677669/work
@@ -220,6 +225,7 @@ pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==8.4.0
 pkginfo==1.7.1
 platformdirs==2.5.2
+plotly==5.14.1
 pluggy @ file:///C:/ci/pluggy_1615976440052/work
 ply==3.11
 pooch==1.6.0
@@ -344,6 +350,7 @@ sympy @ file:///C:/ci/sympy_1635219088507/work
 tables==3.6.1
 TBB==0.2
 tblib @ file:///Users/ktietz/demo/mc3/conda-bld/tblib_1629402031467/work
+tenacity==8.2.2
 tensorboard==2.8.0
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
@@ -385,6 +392,7 @@ watchdog @ file:///C:/ci/watchdog_1624955113064/work
 wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
 webencodings==0.5.1
 Werkzeug==2.0.3
+wget==3.2
 whichcraft @ file:///tmp/build/80754af9/whichcraft_1617751293875/work
 whisper @ git+https://github.com/openai/whisper.git@e90b8fa7e845ae184ed9aa0babcf3cde6f16719e
 widgetsnbextension @ file:///C:/ci/widgetsnbextension_1607531582688/work
