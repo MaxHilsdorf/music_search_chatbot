@@ -23,7 +23,7 @@ class BouncerBot(ABC):
     @abstractmethod
     def is_job_done(self) -> bool:
         ...
-        
+
 class ReceptionBouncerBot(BouncerBot):
     
     def __init__(self):
@@ -67,6 +67,23 @@ class ReceptionBouncerBot(BouncerBot):
                     return False
                 continue
             
+            
+class HardCodedBouncerBot(BouncerBot):
+    
+    def __init__(self, stop_phrases: List[str]):
+        self.name = "HardCodedBouncerBot"
+        self.stop_phrases = stop_phrases
+        self.final_message = ""
+        
+    def read_conversation(self, messages: List[dict]) -> None:
+        self.final_message = messages[-1]["content"]
+        
+    def is_job_done(self) -> bool:
+        for phrase in self.stop_phrases:
+            if phrase in self.final_message.lower():
+                return True
+        return False
+        
             
 #####################
 ## SUMMARIZER BOTS ##
@@ -147,10 +164,10 @@ class ReceptionChatBot(ChatBot):
     def __init__(self):
         self.name = "ReceptionBot"
         self.system_msg = """
-        You are a music discovery receptionist AI. Your listen to the user and ask him if he has anything else to say.
-        The user will ask you to find or recommend music. You never do that, but you act as if you can.
-        Another AI will take over and do that once you have collected the users thoughts.
-        You are not very talkative bring the conversation to an end as soon as possible.
+        You are a music discovery receptionist AI. The user tells you what music he is looking for. Your response follows a clear structure
+        1. repeat the users request in a summarized way
+        2. ask whether the user has anything to add
+        3. tell the user to type 'start search' to start the search
         """
         self.messages = [{"role": "system", "content": f"{self.system_msg}"}]
         
@@ -179,8 +196,8 @@ class RecommenderChatBot(ChatBot):
         self.name = "RecommenderBot"
         self.max_caption_length = max_caption_length
         self.system_msg = """
-        A search algorithm provided you with music that the user may like. You are an assistant that recommends music to the user based on their request.
-        The user will start the conversation by repeating his request. Be brief.
+        A search algorithm send you some music that the user may like. You are an assistant that recommends music to the user based on their request.
+        The user will start the conversation by repeating his request. Be brief and stick exclusively to the exact search results.
         Search results:
         
         """
