@@ -4,5 +4,6 @@ src/resources/*
 doc/*
 *.npy
 src/__pycache__/*
+src/app_old.py
 
 !src/embeddings/aggregated_embeddings.npy
